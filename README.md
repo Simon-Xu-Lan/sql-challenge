@@ -2,22 +2,41 @@
 
 <img src="images/conceptual-ERD.png" alt="conceptual ERD" width="1000" />
 
-## employee and salaries: one to one relatioinship
+## Assumption:
 
-- An employee has one and only one salary
-- A salary belongs to one and only one employee
+1. An employee has one and only one salary
 
-## employee and title: one to many relationship
+- An employee can only have one salary
+- An employee with zero salary with record 0 in salary table
 
-- An employee has one and only on title
-- One title can apply to one and many employee
+2. A salary is related to one and only one employee
 
-## employee and departments: Many to Many relationship
+- Salaries with no employee will not added to the database
+- Each salary record connected to one employee
 
-- A department has one and many employee
-- An employee can belong to one and many department
+3. An employee has one and only on title
+4. One title can apply to one and many employee
 
-## employee/manager and department: one to many employee
+- Many employee can have the same title
 
-- A department has one and many managers/employee
-- A manager/employee manage one and only one department
+5. A department has zero and many employee
+
+- A department can be added to database before having any employee
+- A department can have one and many employee
+
+6.  An employee can belong to one and many department
+
+- An employee can work on multi departements
+
+7. A department has one and many managers/employee
+8. A manager/employee manage one and only one department
+
+## Relationship:
+
+- employee and salaries: one to one relatioinship
+
+- employee and title: one to many relationship
+
+- employee and departments: Many to Many relationship
+
+- employee/manager and department: one to many employee

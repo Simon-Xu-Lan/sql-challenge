@@ -1,57 +1,4 @@
-# Conceptual Database Design
-
-<img src="images/conceptual-ERD.png" alt="conceptual ERD" width="1000" />
-
-## Assumption:
-
-1. An employee has one and only one salary
-
-- An employee can only have one salary
-- An employee with zero salary with record 0 in salary table
-
-2. A salary is related to one and only one employee
-
-- Salaries with no employee will not added to the database
-- Each salary record connected to one employee
-
-3. An employee has one and only on title
-4. One title can apply to one and many employee
-
-- Many employee can have the same title
-
-5. A department has zero and many employee
-
-- A department can be added to database before having any employee
-- A department can have one and many employee
-
-6.  An employee can belong to one and many department
-
-- An employee can work on multi departements
-
-7. A department has one and many managers/employee
-8. A manager/employee manage one and only one department
-
-## Relationship:
-
-- employee and salaries: one to one relatioinship
-
-- employee and title: one to many relationship
-
-- employee and departments: Many to Many relationship
-
-- employee/manager and department: one to many employee
-
-# Logical database design
-
-<img src="images/logical-ERD.png" alt="logical ERD" width="1000" />
-
-## Using quickDBD
-
-<img src="images/QuickDBD-ERD.png" alt="ERD" width="1000" />
-
-# Create tables
-
-```sql
+-- Create tables
 CREATE TABLE title (
 	title_id VARCHAR(10) PRIMARY KEY,
 	title VARCHAR(20)
@@ -96,11 +43,8 @@ CREATE TABLE dept_manager (
 	FOREIGN KEY(emp_no) REFERENCES employee(emp_no),
 	FOREIGN KEY(dept_no) REFERENCES departments(dept_no)
 );
-```
 
-# Import data to the database
-
-```sql
+-- Import data
 -- Step 1, import title data
 COPY title
 FROM '/Users/simonxu/data_du/hw/09-SQL/data/titles.csv'
@@ -116,7 +60,7 @@ DELIMITER ',' CSV HEADER;
 SELECT * FROM departments;
 
 -- Step 3, import employee data
-COPY employee
+COPY employee 
 FROM '/Users/simonxu/data_du/hw/09-SQL/data/employees.csv'
 DELIMITER ',' CSV HEADER;
 
@@ -124,7 +68,7 @@ SELECT * FROM employee
 LIMIT 10;
 
 -- STEP 4, import salary data
-COPY salaries
+COPY salaries 
 FROM '/Users/simonxu/data_du/hw/09-SQL/data/salaries.csv'
 DELIMITER ',' CSV HEADER;
 
@@ -132,7 +76,7 @@ SELECT * FROM salaries
 LIMIT 10;
 
 -- STEP 5, import dept_emp data
-COPY dept_emp
+COPY dept_emp 
 FROM '/Users/simonxu/data_du/hw/09-SQL/data/dept_emp.csv'
 DELIMITER ',' CSV HEADER;
 
@@ -145,4 +89,3 @@ FROM '/Users/simonxu/data_du/hw/09-SQL/data/dept_manager.csv'
 DELIMITER ',' CSV HEADER;
 
 SELECT * FROM dept_manager;
-```

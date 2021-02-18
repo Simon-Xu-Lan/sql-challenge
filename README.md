@@ -40,3 +40,7 @@
 - employee and departments: Many to Many relationship
 
 - employee/manager and department: one to many employee
+
+## Logical database design
+
+<img src="images/logical-ERD.png" alt="conceptual ERD" width="1000" />

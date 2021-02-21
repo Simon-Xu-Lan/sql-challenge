@@ -239,3 +239,13 @@ FROM employee
 GROUP BY last_name
 ORDER BY count_last_name DESC;
 ```
+
+# The histogram to visualize the most common salary ranges for employees.
+
+## The Most common salary range is around from 40000 to 44000
+
+<img src="images/hist_salary_employee.png" alt="histogram salary for employees" width="1000" />
+
+# The bar chart of average salary by title.
+
+<img src="images/bar_avg_salary_by_title.png" alt="bar chart of average salary by title" width="1000" />
